@@ -17,7 +17,7 @@ run-circleci-local:
 	# See https://circleci.com/docs/2.0/local-cli/#running-a-job
 	# https://support.circleci.com/hc/en-us/articles/7060937560859-How-to-resolve-error-storage-opt-is-supported-only-for-overlay-over-xfs-with-pquota-mount-option-when-running-jobs-locally-with-the-cli
 	# simple add ....
-	circleci local execute
+	circleci local execute -v ~/environment/tmp:/repo --job build
 
 lint:
 	hadolint demos/flask-sklearn-student-starter/Dockerfile
