@@ -1,3 +1,32 @@
+#create multi-line usage/help message for makefile
+define USAGE
+*******************************************************
+This is abusing Makefile (using make target)
+to simplify some shell-commands related to this project
+*******************************************************
+target:
+*******************************************************
+setup:					zzzz
+install:				gggg
+test:					ggggg
+validate-circleci:		vvvv
+run-circleci-local:		bbbb
+lint: 					ggg
+all:					uuuu
+help: 					this help message
+*******************************************************
+endef
+export USAGE
+
+#get current dir name
+#https://stackoverflow.com/questions/18136918/how-to-get-current-relative-directory-of-your-makefile
+export current_dir = $(notdir $(shell pwd))
+
+
+help:
+	@echo "$${USAGE}"
+
+
 setup:
 	python3 -m venv ~/.udacity-devops
 
